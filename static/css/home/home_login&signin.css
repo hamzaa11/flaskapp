@@ -1,0 +1,42 @@
+.textInputs{
+    width: calc(100% - 30px * 2);
+    color: grey;
+    padding: 10px;
+    margin: 10px;
+    background-color: black;
+    border-radius: 0.8rem;
+    border:2px solid #373738;
+    outline: none;
+    transition: box-shadow 0.5s ease;
+}
+
+.textInputs:hover{
+    box-shadow: 0px 0px 20px 0.7px rgba(255, 255, 255, 0.1);
+}
+
+.error-message {
+    color: rgba(255, 0, 0, 0.5);
+    font-size: small;
+}
+
+.vaild-message{
+    color: rgba(0, 255, 0, 0.5);
+    font-size: small;
+}
+
+.submitInput {
+    width: 100px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(39, 39, 39);
+    border-radius: 0.8rem;
+    border:2px solid #4b4b4b;
+    outline: none;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease;
+}
+.submitInput:hover{
+    background-color: rgb(26, 26, 26);
+    box-shadow: 0px 0px 20px 0.7px rgba(255, 255, 255, 0.1);
+}

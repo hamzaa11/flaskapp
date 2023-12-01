@@ -1,0 +1,68 @@
+#loginPlacementDiv{
+    margin: 0;
+    padding: 30px;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    top: 0px;
+    left: 0px;
+    flex-wrap: wrap;
+}
+
+#loginInnerDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #242328;
+    height: fit-content;
+    width: 300px;
+    border-radius: 0.8rem;
+    border:2px solid #373738;
+    transition: opacity 0.5s ease, transform 0.5s ease-in-out;
+}
+
+#loginInnerDiv h1{
+    font-family: monospace;
+    padding-bottom: 10px;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+.smallText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.smallText a, .smallText div{
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: monospace;
+    color: grey;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.smallText div:hover ,.smallText a:hover{
+    color: white;
+    
+}
+
+.login-hidden {
+    /* Set styles for when the element is hidden */
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+#loginInnerDiv form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
