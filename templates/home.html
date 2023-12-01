@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/734943f3a0.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_search.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_top.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_results.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_bottom.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_login.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_signin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_login&signin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_sideMenu.css')}}">
+
+
+    <title>Movie Search Hub</title>
+</head>
+<body>
+
+    <header>
+        <nav id="headerContent">
+
+            <div id="leftSide">
+                <img class="logoImg" src="{{url_for('static', filename='img/LOGO.png')}}" alt="">
+            </div>
+
+            <div id="rightSide">
+            </div>
+
+        </nav>
+    </header>
+
+    <div id="sideMenu">
+        <div id="menuBar" class="menuBar">
+            <span id="top-line-menubtn"></span>
+            <span id="middle-line-menubtn"></span>
+            <span id="bottom-line-menubtn"></span>
+        </div>
+        <!-- <div class="sideMenuLine"></div> -->
+
+        {%if logged_in%}
+            <i onclick="window.location.href('/profile')" class="fa-solid fa-user MenuIcons"></i>
+        {%else%}
+        <i onclick="login()" class="fa-solid fa-user MenuIcons"></i>
+        {%endif%}
+
+        <i class="fa-solid fa-film"></i>
+    </div>
+
+    <main id="main">
+        <div id="search-bar">
+            <div id="search-container">
+                <input type="text" id="movieSearch" placeholder="Find Your Movie">
+                <i id="searchBut" onclick="searchMovies()" class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div id="resultBox"> 
+                <!-- results will go here using javascript -->
+            </div>
+        </div>
+    </main>
+
+    <div id="loginPlacementDiv">
+            <div id="loginInnerDiv">
+                <h1>Log-in</h1>
+
+                <form method="post" action="/login">
+                    <input name="email" class="textInputs" placeholder="Email" type="email" id="emailLoginInput">
+                    <div id="emailLoginError" class="error-message"></div>
+
+                    <input name="password" class="textInputs" placeholder="Password" type="password" id="passwordLoginInput">
+                    <div id="passwordLoginError" class="error-message"></div>
+
+                    <input type="submit" value="login" class="submitInput" id="submitButtonSignin">
+                </form>
+
+                <div class="smallText">
+                    <div class="creatAccount" onclick="signin()" >Create account</div>
+                    <a href="/forgotpass">Forgot password</a>
+                </div>
+            </div>
+    </div>
+
+    <div id="signinPlacementDiv">
+        <div id="signinInnerDiv">
+    
+            <h1>Sign-in</h1>
+
+            <form method="post" action="/signin">
+
+                <div id="genralerrorError" class="error-message"></div>
+
+                <input class="textInputs" placeholder="Username" type="text" id="usernameSigninInput" name="username">
+                <div id="usernameSigninerrorError" class="error-message"></div>
+                <div id="usernameSigninvaildVaild" class="vaild-message"></div>
+
+    
+                <input class="textInputs" placeholder="Email" type="email" id="emailSigninInput" name="email">
+                <div id="emailSigninerrorError" class="error-message"></div>
+                <div id="emailSigninvaildVaild" class="vaild-message"></div>
+    
+                <input class="textInputs" placeholder="Password" type="password" id="passwordSigninInput" name="password">
+                <div id="passwordSigninerrorError" class="error-message"></div>
+                <div id="passwordSigninvaildVaild" class="vaild-message"></div>
+    
+                <input type="submit" value="Signin" class="submitInput" id="submitButtonSignin">
+            </form>
+            <div class="smallText">
+                <a onclick="login()">Back</a>
+            </div>
+    
+        </div>
+    </div>
+
+    
+    <div id="input-background">
+        <img id="bg_img" src="{{url_for('static', filename='img/intro-bg.jpeg')}}" alt="img">
+        <div id="overlay"></div>
+    </div>
+
+
+    <div id="Movie-sug">
+        <div id="featured-movies">
+            <h2>Trending Now</h2>
+            <!-- Featured movies content goes here -->
+        </div>
+
+        <div id="genre-explorer">
+            <h2>Explore by Genre</h2>
+            <!-- Genre buttons go here -->
+        </div>
+
+        <div id="top-picks">
+            <h2>Top Picks for You</h2>
+            <!-- Personalized recommendations go here -->
+        </div>
+
+        <div id="latest-releases">
+            <h2>Latest Releases</h2>
+            <!-- Now playing and new on streaming content goes here -->
+        </div>
+    </div>
+    <div id="blackBox"></div>
+    <script src="{{url_for('static', filename='js/home/home_search.js')}}">  </script>
+    <script src="{{url_for('static', filename='js/home/home_content.js')}}">  </script>
+    <script src="{{url_for('static', filename='js/home/home_login.js')}}">  </script>
+    <script src="{{url_for('static', filename='js/home/home_signin.js')}}">  </script>
+    <script src="{{url_for('static', filename='js/home/home_login&signin.js')}}">  </script>
+    <script src="{{url_for('static', filename='js/home/home_sideMenu.js')}}">  </script>
+
+    {% if show_error_signin or show_vaild_signin %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+
+                            // Embed Jinja variables directly in JavaScript
+                            var category = '{{category}}';
+                            var message = '{{message}}';
+                            feedbackElements(category,message)
+                            });
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    {%endif%} 
+</body>
+</html>
