@@ -1,14 +1,21 @@
 from flask import Flask, render_template, request, flash, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import db, User, Movie, user_movie
-
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://usersdatabase_user:EdpD0EYTo1Yw2UbXm9jzuomLa7Lg1EXt@dpg-clklh0uaov6s73eik2b0-a:5432/usersdatabase'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '84857457'
+
+db = SQLAlchemy()
 db.init_app(app)
+
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(5000), unique=True, nullable=False)
+    email = db.Column(db.String(12000), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
 
 
 @app.route('/')
