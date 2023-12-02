@@ -56,7 +56,7 @@ def signin():
         password = request.form.get('password')
 
         # Hash the password before storing it in the database
-        hashed_password = generate_password_hash(password, method='sha256')
+        hashed_password = generate_password_hash(password)
 
         # Create a new user
         new_user = User(username=username, email=email, password_hash=hashed_password)
