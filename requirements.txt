@@ -29,6 +29,7 @@ multidict==6.0.4
 pigame==1.9.5.dev0
 Pillow==10.0.0
 premailer==3.10.0
+psycopg2-binary==2.9.9
 pycparser==2.21
 pygame==2.5.0
 pygame.snake==0.0.1a0
@@ -36,7 +37,6 @@ pyinstaller==5.13.2
 pyinstaller-hooks-contrib==2023.8
 PyJWT==2.8.0
 pyperclip==1.8.2
-psycopg2-binary==2.10.0
 python-http-client==3.3.7
 requests==2.31.0
 secure-smtplib==0.1.1
