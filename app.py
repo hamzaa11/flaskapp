@@ -5,20 +5,19 @@ import os
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-#'postgres://usersdatabase_user:EdpD0EYTo1Yw2UbXm9jzuomLa7Lg1EXt@dpg-clklh0uaov6s73eik2b0-a.oregon-postgres.render.com/usersdatabase'
+#'postgresql://usersdatabase_user:EdpD0EYTo1Yw2UbXm9jzuomLa7Lg1EXt@dpg-clklh0uaov6s73eik2b0-a.oregon-postgres.render.com/usersdatabase'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '84857457'
 
 db = SQLAlchemy()
 db.init_app(app)
-
+ 
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(5000000), unique=True, nullable=False)
     email = db.Column(db.String(12000000), unique=True, nullable=False)
     password = db.Column(db.String(1000000), nullable=False)
-
 
 @app.route('/')
 def home():
@@ -93,7 +92,7 @@ def signin():
                 return redirect(url_for('home', show_error_signin=show_error_signin,show_vaild_signin=show_vaild_signin))
 
             else:
-                hashpass = generate_password_hash(password)
+                hashpass = password
                 new_user = User(username=username, email=email, password=hashpass)
                 logged_in = True
                 with app.app_context():
