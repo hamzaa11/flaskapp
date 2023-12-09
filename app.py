@@ -92,7 +92,7 @@ def signin():
                 return redirect(url_for('home', show_error_signin=show_error_signin,show_vaild_signin=show_vaild_signin))
 
             else:
-                hashpass = password
+                hashpass = generate_password_hash(password)
                 new_user = User(username=username, email=email, password=hashpass)
                 logged_in = True
                 with app.app_context():
