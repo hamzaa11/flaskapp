@@ -101,3 +101,21 @@ main{
         rgb(0, 0, 0) 95%
     );
 }
+
+/* Default styles for larger screens */
+
+/* Media query for phones */
+@media only screen and (max-width: 600px) {
+   #movieSearch {
+    flex: 1;
+    background-color: rgb(0, 0, 0);
+    border: 2px solid #242328;
+    border-radius: 10px;
+    padding: 20px;
+    outline: none;
+    max-width: 200px;
+    width: 300px;
+    color: white;
+    transition: box-shadow 0.5s ease;
+}
+}
