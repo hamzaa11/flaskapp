@@ -69,3 +69,11 @@
     margin: 0;
     color: #636363;
 }
+
+@media only screen and (max-width: 600px) {
+  /* Styles for phonesu */
+    #resultBox {;
+    width: 200px;
+
+}
+}
