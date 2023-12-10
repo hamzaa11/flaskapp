@@ -55,8 +55,6 @@ main{
 
 
 #searchBut {
-    position: absolute;
-    right: -13px; /* Adjust the right position to fit your design */
     padding: 0;
     background-color: rgba(0, 0, 0, 0);
     border: none;
