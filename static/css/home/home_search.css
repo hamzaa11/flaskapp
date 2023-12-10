@@ -32,6 +32,7 @@ main{
     position: relative;
     display: flex;
     align-items: center;
+    justify-content:center;
 }
 
 #movieSearch {
@@ -118,9 +119,5 @@ main{
     color: white;
     transition: box-shadow 0.5s ease;
 }
-    main{
-    transition: margin-left 0.5s ease;
-    margin-left: auto;
 
-}
 }
