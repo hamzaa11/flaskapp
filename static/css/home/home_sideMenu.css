@@ -13,7 +13,6 @@
     overflow: hidden;
     white-space: nowrap;
     transition: width 0.5s ease;
-
     display: flex;
     flex-direction: column;
     padding:10px 16px ;
@@ -24,78 +23,88 @@
 /* Active styles for the side menu */
 #sideMenu.active {
     width: 15%;
+    .menuIconsText{
+        visibility: visible;
+        margin-left: 40px;
+        opacity: 1;
+        transition: margin-left 0.5s ease, opacity 0.5s ease; /* Add a smooth transition for opacity */
+    }
+    .menu-line{
+        width: calc(100% - 32px);
+    }
+}
+
+.menu-line {
+    transition: width 0.7s ease;
+    display: block;
+    background-color: #6a6a6a; /* Adjust color as needed */
+    height: 1px;
+    border-radius: 2px;
+}
+
+#top-line-menu{
+    height: 1px;
+    position: absolute;
+    width: 30px;
+    top: 10px;
+}
+
+#bottom-line-menu{
+    height: 1px;
+    position: absolute;
+    width: 30px;
+    bottom: 10px;
 }
 
 
 
 
-.menuBar {
+.menuIcons {
+    position: absolute;
+    margin-left: 5.5px;
+    left: 0;
     display: flex;
-    flex-direction: column;
+    cursor: pointer;
+    transition: filter 0.3s ease; /* Add smooth transitions */
+    justify-content: center;
+    font-size: 19px;
+    
+}
+
+.menuIconsHoverEffect:hover {
+    border-radius: 10px;
+    background-color:#000000;
+
+}
+
+.menuIconsText {
+    visibility: hidden;
+    font-size: 1rem;
+    margin-left: 0px; /* Adjust spacing between icon and text */
+    opacity: 0;
+    transition: margin-left 0.5s ease, opacity 0.3s ease, visibility 0.5s ease; /* Add a smooth transition for opacity */
+}
+
+
+.menuIconsHoverEffect{
+    margin-top: 20px;
+    height: 1.2rem;
+    position: relative;
+    padding: 5.5px;
+    flex: 1;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    height: 30px;
-    width: 30px;
-    z-index: 1;
-    transition: width 100s ease;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncates text with an ellipsis (...) */
 }
 
-.menuBar.active{
-    transition: width 0.5s ease;
+.menuIconsContainer{
     width: 100%;
-}
-
-.menuBar span {
-    display: block;
-    background-color: #ffffff; /* Adjust color as needed */
-    height: 3px;
-    width: 30px;
-    margin: 4px 0; /* Adjust spacing between lines as needed */
-    border-radius: 2px;
-    transition: all 0.3s ease; /* Add smooth color transition */
-}
-
-
-
-
-/* middle menubar line */
-.menuBar #middle-line-menubtn {
-    opacity: 1;
-    transition: transform 0.5s ease,width 0.5s ease;
-    transition: background-color 0.5s ease;
-}
-
-.menuBar.active #middle-line-menubtn {
-    transition:width 0.5s ease;
-    background-color: #494949;
-    opacity: 0.4;
-    width: 100%;
-}
-.menuBar:hover #middle-line-menubtn {
-    background-color: #a7a7a7;
-}
-
-
-
-
-
-.sideMenuLine{
-    background-color: #17161b;
-    width: 100% + 32px;
-    height: 3px;
-}
-
-
-.MenuIcons {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    transition: filter 0.3s ease; /* Add smooth transitions */
-    height: 30px;
-    width: 60px;
-    padding-top: 20px;
-}
-
-.MenuIcons:hover {
-    filter: invert(70%);
-
 }

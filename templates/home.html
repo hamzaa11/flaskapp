@@ -33,20 +33,34 @@
     </header>
 
     <div id="sideMenu">
-        <div id="menuBar" class="menuBar">
-            <span id="top-line-menubtn"></span>
-            <span id="middle-line-menubtn"></span>
-            <span id="bottom-line-menubtn"></span>
-        </div>
+            <span id="top-line-menu" class="menu-line"></span>
+
         <!-- <div class="sideMenuLine"></div> -->
 
         {%if logged_in%}
-            <i onclick="window.location.href('/profile')" class="fa-solid fa-user MenuIcons"></i>
+        <div class="menuIconsContainer">
+            <div class="menuIconsHoverEffect">
+                <i onclick="window.location.href('/profile')" class="fa-solid fa-user menuIcons"></i>
+                <span class="menuIconsText">Profile</span>
+            </div>
+        </div>
         {%else%}
-        <i onclick="login()" class="fa-solid fa-user MenuIcons"></i>
+        <div class="menuIconsContainer">
+            <div onclick="login()" class="menuIconsHoverEffect">
+                <i  class="fa-solid fa-user menuIcons"></i>
+                <span class="menuIconsText">Login</span>
+            </div>
+        </div>
         {%endif%}
+        <div class="menuIconsContainer">
+            <div class="menuIconsHoverEffect">
+                <i class="fa-solid fa-film menuIcons"></i>
+                <span class="menuIconsText">Film</span>
+            </div>
+        </div>
 
-        <i class="fa-solid fa-film"></i>
+
+        <span id="bottom-line-menu" class="menu-line"></span>
     </div>
 
     <main id="main">

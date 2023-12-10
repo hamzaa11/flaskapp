@@ -1,20 +1,26 @@
 # models.py
-from flask_sqlalchemy import SQLAlchemy
+import psycopg2
 
-db = SQLAlchemy()
+# Replace these with your actual connection details
+dbname = "usersdatabase"
+user = "<usersdatabase_user>"
+password = "<EdpD0EYTo1Yw2UbXm9jzuomLa7Lg1EXt>"
+host = "localhost"
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(5000), unique=True, nullable=False)
-    email = db.Column(db.String(12000), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
-    bookmarked_movies = db.relationship('Movie', secondary='user_movie', backref='users', lazy='dynamic')
+# Establish a connection to the PostgreSQL server
+conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host)
 
-class Movie(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
+# Create a cursor object to execute SQL queries
+cursor = conn.cursor()
 
-user_movie = db.Table('user_movie',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
-    db.Column('movie_id', db.Integer, db.ForeignKey('movie.id'), primary_key=True)
-)
+# Example: Execute a simple query
+cursor.execute("SELECT * FROM your_table_name;")
+rows = cursor.fetchall()
+
+# Display the results
+for row in rows:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
