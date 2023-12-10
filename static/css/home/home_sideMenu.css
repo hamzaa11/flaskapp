@@ -108,3 +108,19 @@
     align-items: center;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+   /* Active styles for the side menu */
+#sideMenu.active {
+    width: 20%;
+    .menuIconsText{
+        visibility: visible;
+        margin-left: 40px;
+        opacity: 1;
+        transition: margin-left 0.5s ease, opacity 0.5s ease; /* Add a smooth transition for opacity */
+    }
+    .menu-line{
+        width: calc(100% - 32px);
+    }
+}
+}
