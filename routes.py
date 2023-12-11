@@ -7,7 +7,8 @@ from models import User
 def home():
     logged_in = request.args.get('logged_in', False) 
     show_error_signin = request.args.get('show_error_signin', False) 
-    return render_template('home.html',logged_in=logged_in, show_error_signin=show_error_signin)
+    show_login_error= request.args.get('show_login_error', False)
+    return render_template('home.html',logged_in=logged_in, show_error_signin=show_error_signin, show_login_error=show_login_error)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -24,15 +25,13 @@ def login():
             logged_in = True
             return redirect(url_for('home', logged_in=logged_in))
         else: 
-            flash('Password or Email invaild', category='Password')
-            show_error = True
-            show_login = True
-            return redirect(url_for('home', show_login=show_login, show_error=show_error)) 
+            flash('Password or Email invaild', category='passwordloginerror')
+            show_login_error = True
+            return redirect(url_for('home',show_login_error=show_login_error)) 
     else:
-        flash('Password or Email invaild', category='Email')
-        show_login = True
-        show_error = True
-        return redirect(url_for('home', show_login=show_login, show_error=show_error)) 
+        flash('Password or Email invaild', category='emailloginerror')
+        show_login_error = True
+        return redirect(url_for('home', show_login_error=show_login_error)) 
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():

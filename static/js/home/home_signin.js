@@ -61,21 +61,7 @@ submitButtonSignin.addEventListener('click',() =>{
 })
 
 
-function feedbackElements(catagory, message) {
-  signin();
-  if (catagory.includes('error') ){
-      console.log(catagory + 'Error')
-      const divErrorElement = document.getElementById(catagory + 'Error');
-      divErrorElement.style.display = 'block';
-      divErrorElement.textContent = message;
-  } else {
-      console.log(catagory + 'Vaild')
-      const divErrorElement = document.getElementById(catagory + 'Vaild');
-      divErrorElement.style.display = 'block';
-      divErrorElement.textContent = message;
 
-  }
-};
 
 
 

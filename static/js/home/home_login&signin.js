@@ -1,22 +1,18 @@
+function feedbackElements(catagory, message, type) {
+    if (type === 'signin'){signin();}
+    if (type === 'login'){login();}
+    console.log('i hate this')
 
-function handleMovieClick(movieId) {
-    // Make an AJAX request to your Flask backend
-    fetch('/add_movie', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            movie_id: movieId,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle the response from the server, if needed
-        console.log(data);
-    })
-    .catch(error => {
-        // Handle errors
-        console.error('Error:', error);
-    });
-}
+    if (catagory.includes('error') ){
+        console.log(catagory + 'Error')
+        const divErrorElement = document.getElementById(catagory + 'Error');
+        divErrorElement.style.display = 'block';
+        divErrorElement.textContent = message;
+    } else {
+        console.log(catagory + 'Vaild')
+        const divErrorElement = document.getElementById(catagory + 'Vaild');
+        divErrorElement.style.display = 'block';
+        divErrorElement.textContent = message;
+  
+    }
+  };

@@ -85,6 +85,8 @@
 .menuIconsContainer{
     margin-top: 20px;
     width: 100%;
+    padding: 10px 0px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;

@@ -98,11 +98,12 @@
                 <h1>Log-in</h1>
 
                 <form method="post" action="/login">
+                    <div id="passwordloginerrorError" class="error-message"></div>
+                    <div id="emailloginerrorError" class="error-message"></div>
+                    
                     <input name="email" class="textInputs" placeholder="Email" type="email" id="emailLoginInput">
-                    <div id="emailLoginError" class="error-message"></div>
-
+                    
                     <input name="password" class="textInputs" placeholder="Password" type="password" id="passwordLoginInput">
-                    <div id="passwordLoginError" class="error-message"></div>
 
                     <input type="submit" value="login" class="submitInput" id="submitButtonSignin">
                 </form>
@@ -189,9 +190,29 @@
                         document.addEventListener('DOMContentLoaded', function () {
 
                             // Embed Jinja variables directly in JavaScript
+                            var type = 'signin'
                             var category = '{{category}}';
                             var message = '{{message}}';
-                            feedbackElements(category,message)
+                            feedbackElements(category,message, type)
+                            });
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    {%endif%} 
+
+    {% if show_login_error %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+
+                            // Embed Jinja variables directly in JavaScript
+                            var type = 'login'
+                            var category = '{{category}}';
+                            var message = '{{message}}';
+                            feedbackElements(category,message,type)
                             });
                     </script>
                 {% endfor %}
