@@ -14,7 +14,7 @@ function searchMovies() {
     },1030)
     resultBox.style.height = '0px';
     resultBox.innerHTML = '';
-
+// df467e9d0f181da999e923e5b5ee05a0
     var movieTitle = document.getElementById('movieSearch').value;
     const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=df467e9d0f181da999e923e5b5ee05a0&query=${movieTitle}&sort_by=release_date.desc`;
 
@@ -28,6 +28,7 @@ function searchMovies() {
                 if (data.results && data.results.length > 0) {
                     for (let i = 0; i < 5; i++) {
                         let title = data.results[i].title;
+                        let movieId = data.results[i].id;
                         let Rdate = data.results[i].release_date ? data.results[i].release_date : 'NA';
                         let moviePoster = data.results[i].poster_path;  // Fixed property name
 
@@ -66,8 +67,10 @@ function searchMovies() {
                         movieBox.appendChild(movieImg);
                         movieBox.appendChild(movieInfo);
 
-                        resultBox.appendChild(movieBox);
+                        resultBox.appendChild(movieBox); 
+
                     }
+
 
                     // Clear the activeFetchRequest variable after processing the data
                     activeFetchRequest = null;

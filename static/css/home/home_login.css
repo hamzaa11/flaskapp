@@ -1,4 +1,5 @@
 #loginPlacementDiv{
+    z-index: 11;
     margin: 0;
     padding: 30px;
     display: none;

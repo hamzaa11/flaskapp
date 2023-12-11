@@ -1,23 +1,21 @@
-const screenWidth = screen.availWidth
+const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 const imgDiv = document.getElementById('bg_img')
 const overlay = document.getElementById('overlay')
-const searchDiv = document.getElementById('search-bar')
-const resultBox = document.getElementById('resultBox')
-const movieSearch = document.getElementById('movieSearch')
+
 
 function setWidth(){
     imgDiv.style.width = screen.availWidth + 'px'
-    movieSearch.style.width = screen.availWidth + 'px'
+
+    if (screen.availWidth < 600){ 
+        searchConDiv.style.width = (window.innerWidth - 100) + 'px'
+    }
+
     overlay.style.width = screen.availWidth + 'px'
 }
 setWidth()
 
-function updateWidth(){
-    setWidth()
 
-}
-
-window.addEventListener('resize',updateWidth)
+window.addEventListener('resize',setWidth)
 
 localStorage.setItem('RefreshRoute', '/');
 
@@ -26,3 +24,4 @@ if (performance.navigation.type === 1) {
     // Redirect to a new URL
     window.location.href = '/';
   }
+

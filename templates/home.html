@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/734943f3a0.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_search.css')}}">
@@ -39,24 +39,41 @@
 
         {%if logged_in%}
         <div class="menuIconsContainer">
-            <div class="menuIconsHoverEffect">
                 <i onclick="window.location.href('/profile')" class="fa-solid fa-user menuIcons"></i>
                 <span class="menuIconsText">Profile</span>
-            </div>
+
         </div>
         {%else%}
         <div class="menuIconsContainer">
-            <div onclick="login()" class="menuIconsHoverEffect">
-                <i  class="fa-solid fa-user menuIcons"></i>
-                <span class="menuIconsText">Login</span>
-            </div>
+            <div onclick="login()" class="menuIconsHoverEffect"></div>
+                <i  onclick="login()" class="fa-solid fa-user menuIcons"></i>
+                <span onclick="login()" class="menuIconsText">Login</span>
+
         </div>
         {%endif%}
+
         <div class="menuIconsContainer">
-            <div class="menuIconsHoverEffect">
                 <i class="fa-solid fa-film menuIcons"></i>
-                <span class="menuIconsText">Film</span>
-            </div>
+                <span class="menuIconsText">Movies</span>
+
+        </div>
+
+        <div class="menuIconsContainer">
+                <i class="fa-solid fa-tv menuIcons"></i>
+                <span class="menuIconsText">Tv Shows</span>
+
+        </div>
+
+        <div class="menuIconsContainer">
+                <i class="fa-solid fa-table-list menuIcons"></i>
+                <span class="menuIconsText">Film List</span>
+            
+        </div>
+
+        <div class="menuIconsContainer">
+                <i class="fa-solid fa-clock-rotate-left menuIcons"></i>
+                <span class="menuIconsText">History</span>
+            
         </div>
 
 

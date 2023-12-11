@@ -1,80 +1,62 @@
-body{
-    overflowX:hidden;
-}
-
 main{
-    display:flex;
-    z-index: 999;
-    width: auto;
+    z-index: 10;
+    width: calc(100% - 74px);
+    position: absolute;
+    left: 74px;
+    top: 200px;
+    transition: margin-left 0.5s ease, width 0.5s ease;
 }
 
 main.sideBar{
-    transition: margin-left 0.5s ease;
-    margin-left: calc(20% - 11px);
+    transition: margin-left 0.5s ease, width 0.5s ease;
+    width: calc(100% - 154px);
+    margin-left: calc(154px - 64px);
 }
 
-main{
-    transition: margin-left 0.5s ease;
-    margin-left: 0px;
+/* search styles */
 
-}
+#movieSearch{
 
-/* Search bar styles */
-#search-bar {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#search-container {
-    margin-top: 200px;
-    margin-left:72px;
-    width: 500px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-}
-
-#movieSearch {
-    flex: 1;
-    background-color: rgb(0, 0, 0);
-    border: 2px solid #242328;
+    background-color: #17161b;
+    color: aliceblue;
+    border: 1px solid #242328;
     border-radius: 10px;
+    width: 200px;
     padding: 20px;
     outline: none;
-    max-width: 500px;
-    width: 300px;
-    color: white;
-    transition: box-shadow 0.5s ease;
 }
 
-#movieSearch:hover {
-    box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.25);
-}
-
-
-#searchBut {
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    left:40px;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    cursor: pointer;
-    width: 30px; /* Adjust the width based on your design */
-    height: 30px; /* Adjust the height based on your design */
-    filter: invert(50%);
-    transition: filter 0.3s ease;
+#searchBut{
+    position: absolute;
+    right: 10px;
+    color: aliceblue;
 }
 
 
-#searchBut:hover {
-    filter: invert(0%);
+#search-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+#search-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+
+}
+
+
+
+
+
+
+
+
+
 
 /* Background styles */
 #input-background {
@@ -106,23 +88,4 @@ main{
         rgba(0, 0, 0, 0.4) 35%, /* Adjust the stop to control shadow distribution */
         rgb(0, 0, 0) 95%
     );
-}
-
-/* Default styles for larger screens */
-
-/* Media query for phones */
-@media only screen and (max-width: 600px) {
-   #movieSearch {
-    flex: 1;
-    background-color: rgb(0, 0, 0);
-    border: 2px solid #242328;
-    border-radius: 10px;
-    padding: 20px;
-    outline: none;
-    max-width: 200px;
-    width: 300px;
-    color: white;
-    transition: box-shadow 0.5s ease;
-}
-
 }
