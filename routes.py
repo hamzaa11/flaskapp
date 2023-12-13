@@ -12,6 +12,14 @@ class AuthView(View):
             return self.get()
         elif request.method == 'POST':
             return self.post()
+        
+    def get(self):
+        # Handle GET requests for the home route
+        logged_in = request.args.get('logged_in', False)
+        show_error_signin = request.args.get('show_error_signin', False)
+        show_login_error = request.args.get('show_login_error', False)
+        return render_template('home.html', logged_in=logged_in, show_error_signin=show_error_signin, show_login_error=show_login_error)
+
 
     def home(self):
         # Handle GET requests for the home route
