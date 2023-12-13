@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['SECRET_KEY'] = '84857457'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://usersdatabase_user:EdpD0EYTo1Yw2UbXm9jzuomLa7Lg1EXt@dpg-clklh0uaov6s73eik2b0-a.oregon-postgres.render.com/usersdatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.enviorn.get('DATAASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
