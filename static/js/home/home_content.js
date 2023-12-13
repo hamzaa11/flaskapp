@@ -1,21 +1,25 @@
 const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 const imgDiv = document.getElementById('bg_img')
 const overlay = document.getElementById('overlay')
-
-
-function setWidth(){
-    imgDiv.style.width = screen.availWidth + 'px'
-
-    if (screen.availWidth < 600){ 
-        searchConDiv.style.width = (window.innerWidth - 100) + 'px'
-    }
-
-    overlay.style.width = screen.availWidth + 'px'
+const searchCon = document.getElementById('search-container')
+const resultBox = document.getElementById('resultBox')
+if (window.innerWidth > 1300){
+    imgDiv.style.width = 1400 + 'px'
 }
-setWidth()
 
 
-window.addEventListener('resize',setWidth)
+
+function updateWidth(){
+    console.log(imgDiv.offsetWidth + 'px,', imgDiv.offsetHeight + 'px')
+    overlay.style.width = imgDiv.offsetWidth + 'px'
+    overlay.style.height = imgDiv.offsetHeight + 'px'
+    resultBox.style.width = searchCon.offsetWidth - 42 + 'px'
+}
+
+updateWidth()
+
+
+window.addEventListener('resize',updateWidth)
 
 localStorage.setItem('RefreshRoute', '/');
 

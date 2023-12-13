@@ -5,7 +5,7 @@
     top: 72px;
     left: 10px;
     width: 30px;
-    height: calc(100vh - 62px - 40px);
+    height: fit-content;
     color: aliceblue;
     background: #17161b;
     border: 1px solid #242328;
@@ -52,6 +52,7 @@
 #bottom-line-menu{
     height: 1px;
     position: absolute;
+    margin-top: 20px;
     width: 30px;
     bottom: 10px;
 }

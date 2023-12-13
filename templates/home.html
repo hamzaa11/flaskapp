@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <script src="https://kit.fontawesome.com/734943f3a0.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_search.css')}}">
@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/home/home_sideMenu.css')}}">
 
 
-    <title>Movie Search Hub</title>
+    <title>Movie List</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png' ) }}" type="x-icon">
+
 </head>
 <body>
 
@@ -100,7 +102,7 @@
                 <form method="post" action="/login">
                     <div id="passwordloginerrorError" class="error-message"></div>
                     <div id="emailloginerrorError" class="error-message"></div>
-                    
+
                     <input name="email" class="textInputs" placeholder="Email" type="email" id="emailLoginInput">
                     
                     <input name="password" class="textInputs" placeholder="Password" type="password" id="passwordLoginInput">
